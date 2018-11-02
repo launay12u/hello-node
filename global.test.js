@@ -12,6 +12,15 @@ describe('Server', function() {
       .get('/')
       .end(function(err, res){
         res.should.have.status(200);
+        res.body.message.should.equal('Hello World!')
+        done();
+      });
+  });
+  it('should return a 404', function(done) {
+    chai.request(server)
+      .get('/unknow')
+      .end(function(err, res){
+        res.should.have.status(404);
         done();
       });
   });
