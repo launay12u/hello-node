@@ -1,12 +1,9 @@
 pipeline {
   agent any
-  options {
-    buildDiscarder(logRotator(numToKeepStr:"5"))
-  }
   stages {
     stage('Docker build') {
       steps {
-        sh 'docker -v'
+        sh 'npm -v'
         sh 'Whoiam'
         sh 'docker ps'
       }
@@ -20,6 +17,11 @@ pipeline {
   post {
     always {
       sh 'echo "This will always run"'
+
     }
+
+  }
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
   }
 }
