@@ -7,6 +7,12 @@ chai.use(chaiHttp);
 
 
 describe('Server', function() {
+
+  after(function (done) {
+    server.close();
+    done();
+  });
+
   it('should be return code 200 and Hello World', function(done) {
     chai.request(server)
       .get('/')
@@ -16,6 +22,7 @@ describe('Server', function() {
         done();
       });
   });
+
   it('should return a 404', function(done) {
     chai.request(server)
       .get('/unknow')
