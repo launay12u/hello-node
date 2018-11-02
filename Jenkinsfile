@@ -1,7 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('Running test') {
+    stage('Build') {
+      steps {
+        sh 'npm install --silent'
+      }
+    }
+    stage('Test') {
       steps {
         sh 'npm run test'
       }
