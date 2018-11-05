@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'npm run test'
+        sh 'npm test'
       }
     }
   }
@@ -20,6 +20,6 @@ pipeline {
 
   }
   options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
+    buildDiscarder(logRotator(numToKeepStr: '10'))
   }
 }

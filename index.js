@@ -1,14 +1,18 @@
-var express = require('express')
-var app = express()
+const express = require('express');
 
-//Define request response in root URL (/)
-app.get('/', function (req, res) {
-  res.json({'message':'Hello World!'});
-})
+const app = express();
 
-//Launch listening server on port 8080
-app.listen(8080, function () {
-  console.log('app listening on port 8080!')
-})
+// Define request response in root URL (/)
+
+app.get('/', (req, res) => {
+  res.json({ message: 'Hello World!' });
+});
+
+// Launch listening server on port 8080
+const port = process.env.PORT || 8080;
+
+app.listen(port, () => {
+  console.log(`app listening on port ${port}`);
+});
 
 module.exports = app;
