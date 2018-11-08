@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "pm2-runtime index.js",
-    "dev": "pm2-dev start index.js",
-    "test": "cross-env PORT=9999 mocha global.test.js --exit"
+    "start": "pm2-dev start index.js",
+    "production": "pm2-runtime index.js -i max",
+    "test": "cross-env PORT=9999 mocha global.test.js --exit",
+    "lint": "eslint index.js"
   },
   "repository": {
     "type": "git",
