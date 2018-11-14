@@ -1,2 +1,2 @@
 # hello-node
-simple app to test jenkins, docker, pm2 ...
+[![Coverage Status](https://coveralls.io/repos/github/launay12u/hello-node/badge.svg?branch=master)](https://coveralls.io/github/launay12u/hello-node?branch=master)
