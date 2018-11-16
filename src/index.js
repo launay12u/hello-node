@@ -1,9 +1,18 @@
 const express = require('express');
+const expressStatsd = require('express-statsd');
 
 const app = express();
 
+app.use(expressStatsd());
+function statsd(path) {
+  return (req, res, next) => {
+    const method = req.method || 'unknown_method';
+    req.statsdKey = ['http', method.toLowerCase(), path].join('.');
+    next();
+  };
+}
 // Define request response in root URL (/)
-app.get('/', (req, res) => {
+app.get('/', statsd('home'), (req, res) => {
   res.json({ message: 'Hello World!' });
 });
 // Launch listening server on port 8080
