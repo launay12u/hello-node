@@ -15,6 +15,10 @@ function statsd(path) {
 app.get('/', statsd('home'), (req, res) => {
   res.json({ message: 'Hello World!' });
 });
+
+app.get('/users', statsd('user'), (req, res) => {
+  res.json({ message: 'Hello user!' });
+});
 // Launch listening server on port 8080
 
 /* istanbul ignore next */
